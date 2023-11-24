@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import * as process from 'process';
 import { RoiReportModule } from './modules/roi-report/roi-report.module';
 
 @Module({
   imports: [
-    RoiReportModule,
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot(
       {
         type: 'postgres',
@@ -18,6 +19,7 @@ import { RoiReportModule } from './modules/roi-report/roi-report.module';
         entities: [__dirname + '/**/*.entity{.js,.ts}']
       },
     ),
+    RoiReportModule,
   ],
   controllers: [],
   providers: [],

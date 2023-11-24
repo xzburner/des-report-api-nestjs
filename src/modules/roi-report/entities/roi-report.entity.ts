@@ -9,5 +9,4 @@ export class RoiReportEntity extends BaseEntity {
 
   @Column()
   description: string;
-
 }
